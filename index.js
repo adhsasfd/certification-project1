@@ -11,15 +11,15 @@ let highScore = 0; // Variable to track the player's highest score
 // Functions
 function start() {
   // Display a message indicating the start of the game
-  console.log("Game starts.");
+   console.log("Game starts.");
 
   // Display the main menu
-  mainMenu();
+    mainMenu();
 }
 
 
 function mainMenu() { //Defines a function named mainMenu with no parameters. This function handles displaying the main menu options to the user and processing their selection.
-  console.log("**Main Menu**");//Prints the main menu title "Main Menu" to the console.
+   console.log("**Main Menu**");//Prints the main menu title "Main Menu" to the console.
   console.log(` 
   1. Create Quiz 
   2. Edit Quiz 
@@ -31,7 +31,7 @@ function mainMenu() { //Defines a function named mainMenu with no parameters. Th
   `); // Uses template literals (backticks) to create a multi-line string containing the menu options.
       //Option 1 allows the user to create a new quiz.Option 2 allows the user to edit an existing quiz.Option 3 allows the user to delete a quiz.
       //Option 4 allows the user to play a quiz.Option 5 allows the user to save the quiz list to a JSON file.Option 6 allows the user to load quizzes from a JSON file.Option 7 allows the user to end the game by entering "q".
-  const option = prompt().toLowerCase();//Prompts the user to enter an option from the menu.//.toLowerCase(): Converts the user's input to lowercase for case-insensitive matching in the switch statement.
+   const option = prompt().toLowerCase();//Prompts the user to enter an option from the menu.//.toLowerCase(): Converts the user's input to lowercase for case-insensitive matching in the switch statement.
 //Initiates a switch statement that evaluates the user's input (option) and executes the corresponding code block based on the selected option.
   switch (option) {
     case "1": //If the user entered "1", the createQuiz() function is called to initiate the quiz creation process.
@@ -57,6 +57,27 @@ function mainMenu() { //Defines a function named mainMenu with no parameters. Th
       return;//Exits the mainMenu function, effectively ending the program loop.
     default://If the user's input doesn't match any valid option, an error message is displayed.
       console.log("Invalid Input. Please try again.");//Prints an error message prompting the user to re-enter a valid option.
-      mainMenu();//Calls the mainMenu function again to re-display the menu options. This creates a loop that continues until the user enters a valid option or "q" to quit.
+         mainMenu();//Calls the mainMenu function again to re-display the menu options. This creates a loop that continues until the user enters a valid option or "q" to quit.
   }
 }
+
+
+// Creates a new quiz and sets it as the current quiz.
+
+function createQuiz() {
+  // Prompts the user to enter a quiz name.
+    const quizName = prompt("Create a Quiz name: ");
+  // Creates a new quiz object with the given name and an empty questions array.
+    const newQuiz = { 
+      questions: [],
+  };
+  // Adds the new quiz to the list of quizzes.
+    quizList.push(newQuiz);
+  // Sets the current quiz to the newly created quiz.
+    currentQuiz = newQuiz;
+  // Logs a message indicating that the quiz was created.
+   console.log(`Quiz "${quizName}" is created.`);
+  // Opens the question editor for the newly created quiz.
+       editQuestions();
+}
+
