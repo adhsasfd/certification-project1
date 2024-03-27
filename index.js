@@ -255,10 +255,24 @@ function editQuestion() {
     } else {
       console.log("Question deletion cancelled.");
     }
-  }
+  } 
 //The .splice(questionIndex, 1) part applies the splice method to the questions array within the current quiz object.
 //splice is a built-in JavaScript function that modifies an array by removing elements.
 //The first argument (questionIndex) specifies the starting index at which to delete elements.
 //The second argument (1) indicates the number of elements to remove. In this case, it only removes one element.
 
 
+// This function finds the index of a quiz in the quizList by its name 
+function findQuizIndex(quizName) {
+  // Find the index of the quiz with the matching name in quizList. Uses the findIndex method to find the index of the quiz with the matching name in the quizList array.
+  return quizList.findIndex((quiz) => quiz.name === quizName);
+}
+
+//(quiz) => quiz.name === quizName: This part defines an anonymous callback function (also called an arrow function) that findIndex uses to evaluate each element (quiz) in the quizList array.
+//quiz: This parameter represents each element (quiz object) that findIndex iterates through in the quizList array.
+//quiz.name === quizName: This is the test condition within the callback function. It checks if the name property of the current quiz object (quiz) matches the value of the quizName argument passed to the findQuizIndex function.
+//4. Returning the Index:
+
+//return ...: This line returns the value obtained from the findIndex method.
+//If a quiz is found that matches the quizName, findIndex returns the index of that quiz within the quizList array.
+//If no matching quiz is found, findIndex returns -1.
