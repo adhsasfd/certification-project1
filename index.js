@@ -106,3 +106,50 @@ function editQuiz() {
   editQuestions();
 
 }
+// This function allows users to manage questions in a quiz or similar application
+function editQuestions() {
+  // Loop continuously until the user exits
+        while (true) {
+      // Display a menu with options for adding, editing, deleting questions, or finishing
+    
+      console.log(`  
+      1. Add question
+      2. Edit question
+      3. Delete question
+      4. Finish editing question (or press 'q' to quit)
+    `);
+
+    // Prompt the user to enter an option and convert it to lowercase for case-insensitive matching. Explains that the user's input is stored in the option variable and converted to lowercase.
+       const option = prompt().toLowerCase();
+
+  // Use a switch statement to handle different user choices
+          switch (option) { //Introduces the switch statement that executes different code blocks based on the user's choice.
+         case "1": // Call the addQuestion function (implementation not shown here) to add a new question
+          addQuestion(); 
+          break;//Explains the purpose of the break statement, which exits the current case block.
+
+            case "2": // Call the editQuestion function (implementation not shown here) to edit an existing question
+          editQuestion();
+          break;
+
+           case "3":// Call the deleteQuestion function (implementation not shown here) to remove a question
+          deleteQuestion();
+          break;
+
+            case "4":// Exit the editing loop and return to the main menu (implementation not shown in this code)
+          console.log("Finish editing Question.");//the message displayed when the user finishes editing.
+          mainMenu();//Indicates that the code calls another function for the main menu.
+            return; //Explains that the return statement exits the editQuestions function.
+
+           case "q":// Terminate the program gracefully if the user enters 'q'
+          console.log("**Game Ended**");
+          process.exit(0); // Terminate the process gracefully.this line terminates the program with an exit code of 0.
+
+             default:// Handle invalid input by displaying an error message and looping back to the menu.
+          console.log("Invalid Input. Please try again.");//Explains the error message displayed for invalid input.
+          editQuestions();// In the default case, the function calls itself recursively to restart the menu and prompt for a valid option.
+         }
+    }
+  }
+  
+  
