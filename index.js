@@ -192,3 +192,8 @@ point,
     console.log("Question added successfully."); 
 }
 
+// This function edits an existing question in the quiz
+function editQuestion() {
+  // Prompt the user to enter the index of the question they want to edit (starting from 1). Prompts the user for the index of the question to edit and stores it in the questionIndex variable after adjusting for the 0-based index.
+    const questionIndex = parseInt(prompt("Enter the number of question you want to edit: ")) - 1;
+  
