@@ -325,4 +325,18 @@ function deleteQuizFromFile(quizName) {
 
 }
 
+function saveQuizToFile() {
+  
+}
+
+
+function loadQuizFromFile() {
+}
+
+
+start();
+
+
+
+
 
