@@ -271,8 +271,36 @@ function findQuizIndex(quizName) {
 //(quiz) => quiz.name === quizName: This part defines an anonymous callback function (also called an arrow function) that findIndex uses to evaluate each element (quiz) in the quizList array.
 //quiz: This parameter represents each element (quiz object) that findIndex iterates through in the quizList array.
 //quiz.name === quizName: This is the test condition within the callback function. It checks if the name property of the current quiz object (quiz) matches the value of the quizName argument passed to the findQuizIndex function.
-//4. Returning the Index:
-
-//return ...: This line returns the value obtained from the findIndex method.
+//4. Returning the Index://return ...: This line returns the value obtained from the findIndex method.
 //If a quiz is found that matches the quizName, findIndex returns the index of that quiz within the quizList array.
 //If no matching quiz is found, findIndex returns -1.
+
+function deleteQuizFromFile(quizName) {
+  // **Reads the JSON file containing the quizzes** This line reads the "quiz.json" file and stores its contents in the data variable.
+   fs.readFile("quiz.json", (err, data) => {
+     // **Checks for errors while reading the file**:This line checks if there were any errors during the file read operation and displays an error message if necessary.
+     if (err) {
+       console.error(`Error reading file: ${err.message}`);
+       return;// Exit the function if an error occurs
+     }
+ 
+   // **Parses the JSON string into a JavaScript object**This line converts the JSON string from the file into a JavaScript object named jsonData.
+     const jsonData = JSON.parse(data);
+ 
+     // **Finds the index of the quiz with the matching name**This line uses the findIndex method to find the index of the quiz with the matching quizName in the jsonData array.
+     const quizIndex = jsonData.findIndex((quiz) => quiz.name === quizName);
+ 
+     // **Checks if the quiz was found**This line checks if the quiz was found and displays an error message if it wasn't.
+     if (quizIndex === -1) {
+       console.error(`Quiz "${quizName}" does not exist.`);
+       return;// Exit the function if the quiz was not found
+     }
+ 
+ 
+       
+ // **Displays a message indicating that the quiz was deleted**//This line displays a message indicating that the quiz was deleted successfully.
+       console.log(`Quiz "${quizName}" deleted from JSON file.`);
+       mainMenu(); // **Calls the mainMenu function to return to the main menu.This line calls the mainMenu function to return the user to the main menu of the application.
+     });
+   });
+ } 
