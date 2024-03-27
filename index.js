@@ -153,3 +153,41 @@ function editQuestions() {
   }
   
   
+// This function adds a new question to the quiz. describes the overall purpose of the addQuestion function.
+function addQuestion() {
+  // Prompt the user to enter the question text. Explains that the user's input for the question text is stored in the questionText variable.
+    const questionText = prompt("Write a question: ");
+       const answerOptions = [];//Initializes an empty array to store answer options.
+     let answerCount = parseInt(prompt("Write the numbers of answers: "));// Prompt the user to enter the number of answers (between 1 and 4). Prompts the user for the number of answers and stores it in the answerCount variable after parsing it to an integer.
+   while (answerCount < 1 || answerCount > 4) {
+      answerCount = parseInt(prompt("The numbers of answers are between one and four. Please try again: "));
+         }//A loop that ensures the number of answers is between 1 and 4.
+
+// Loop through each answer and prompt the user to enter the text. A loop that iterates through the number of answers and prompts the user to enter each one.
+   for (let i = 0; i < answerCount; i++) {
+     answerOptions.push(prompt(`Write the answer number ${i + 1}: `));
+       }
+// Prompts the user for the number of the correct answer and stores it in the correctAnswer variable after adjusting for the 0-based index.In JavaScript, arrays are indexed from 0.This means the first element is at index 0, the second at index 1, and so on.
+   const correctAnswer = parseInt(prompt("Put the number of correct answer: ")) - 1;
+
+//Prompts the user for the point value of the question and stores it in the point variable
+   const point = parseInt(prompt("Put the point of this question: "));
+
+//Creates a new question object using the collected information.
+const question = {
+text: questionText,
+answerOptions,
+correctAnswer,
+point, 
+};
+
+
+// Find the index of the current quiz in the quizList.It is to find the current quiz index
+   const currentQuizIndex = findQuizIndex(currentQuiz.name);
+
+// Add the new question to the questions array of the current quiz in quizList (explains that the code to add the question to the quiz list)
+   quizList[currentQuizIndex].questions.push(question);
+// Display a message indicating that the question was added
+    console.log("Question added successfully."); 
+}
+
