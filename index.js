@@ -235,7 +235,18 @@ function editQuestion() {
   function deleteQuestion() {
     //// Prompt the user to enter the index of the question to delete (starting from 1).Prompts the user for the index of the question to delete and stores it in the questionIndex variable after adjusting for the 0-based index.
     const questionIndex = parseInt(prompt("Enter the number of the question to delete: ")) - 1;
-    
+    if (questionIndex < 0 || questionIndex >= currentQuiz.questions.length) {
+      console.log("Invalid question number. Please try again.");
+      return;
+    }//Checks if the entered index is valid and displays an error message if it's not.
+  
+    // Prompt the user for confirmation before deleting the question
+    const confirmation = prompt("Are you sure you want to delete this question? (y/n): ");
+    // Delete the question if the user confirms
+    if (confirmation === "y") {
+      
+      }
+
   }
 
-  
+
