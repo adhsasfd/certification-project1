@@ -296,7 +296,22 @@ function deleteQuizFromFile(quizName) {
        return;// Exit the function if the quiz was not found
      }
  
- 
+     // **Deletes the quiz from the jsonData array at the specified index**This line removes the quiz from the jsonData array at the specified index.
+     jsonData.splice(quizIndex, 1);
+
+     // **Creates a new array containing only the name and questions properties of each quiz object**Creates a new array: This line creates a new array named updatedQuizList containing only the name and questions properties of each quiz object in jsonData.
+   const updatedQuizList = jsonData.map((quizData) => ({
+     name: quizData.name,
+     questions: quizData.questions,
+   }));
+
+   // **Writes the updated quiz list to the JSON file**This line writes the updated quiz list back to the "quiz.json" file.
+     fs.writeFile("quiz.json", JSON.stringify(jsonData, null, 2), (err) => {
+       if (err) {
+         console.error(`Error writing file: ${err.message}`);//This line checks for any errors during the file write operation and displays an error message if necessary.
+         return;// Exit the function if an error occurs
+       
+       }
        
  // **Displays a message indicating that the quiz was deleted**//This line displays a message indicating that the quiz was deleted successfully.
        console.log(`Quiz "${quizName}" deleted from JSON file.`);
