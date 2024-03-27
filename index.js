@@ -319,3 +319,28 @@ function deleteQuizFromFile(quizName) {
      });
    });
  } 
+
+ function playQuiz() {
+  // **Gets the quiz name from the user**Prompts the user to enter the name of the quiz they want to play.
+  const quizName = prompt("Write the quiz name you want to play: ");
+
+  // **Finds the quiz with the matching name**Finds the quiz with the matching name in the quizList array.
+const selectedQuiz = quizList.find((quiz) => quiz.name === quizName);
+
+mainMenu();
+
+}
+
+function saveQuizToFile() {
+  // **Gets the file name from the user**Prompts the user to enter the file name for saving the quiz data. The default filename is "quiz.json" if the user leaves it blank.
+  const fileName = prompt("Write the file name (example: myQuiz.json): ") || "quiz.json";
+  
+}
+
+function loadQuizFromFile() {
+  //**Gets the file name from the user** Prompts the user to enter the file name from which the quiz data should be loaded. The default filename is "quiz.json" if the user leaves it blank.
+  const fileName = prompt("Write the file name you want to read from (example: myQuiz.json): ") || "quiz.json";
+
+}
+
+start();
