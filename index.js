@@ -244,9 +244,21 @@ function editQuestion() {
     const confirmation = prompt("Are you sure you want to delete this question? (y/n): ");
     // Delete the question if the user confirms
     if (confirmation === "y") {
-      
-      }
+      // Find the index of the current quiz in the quizList 
+      const currentQuizIndex = findQuizIndex(currentQuiz.name);
+  
+      // Delete the question from the questions array of the current quiz in quizList
+      quizList[currentQuizIndex].questions.splice(questionIndex, 1);
 
+  // Display a message indicating that the question was deleted
+      console.log("Question deleted successfully!"); 
+    } else {
+      console.log("Question deletion cancelled.");
+    }
   }
+//The .splice(questionIndex, 1) part applies the splice method to the questions array within the current quiz object.
+//splice is a built-in JavaScript function that modifies an array by removing elements.
+//The first argument (questionIndex) specifies the starting index at which to delete elements.
+//The second argument (1) indicates the number of elements to remove. In this case, it only removes one element.
 
 
