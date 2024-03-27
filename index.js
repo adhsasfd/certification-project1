@@ -66,20 +66,23 @@ function mainMenu() { //Defines a function named mainMenu with no parameters. Th
 
 function createQuiz() {
   // Prompts the user to enter a quiz name.
-    const quizName = prompt("Create a Quiz name: ");
+  const quizName = prompt("Create a Quiz name: ");
   // Creates a new quiz object with the given name and an empty questions array.
-    const newQuiz = { 
-      questions: [],
+  const newQuiz = { 
+    name: quizName,
+    questions: [],
   };
   // Adds the new quiz to the list of quizzes.
-    quizList.push(newQuiz);
+  quizList.push(newQuiz);
   // Sets the current quiz to the newly created quiz.
-    currentQuiz = newQuiz;
+  currentQuiz = newQuiz;
   // Logs a message indicating that the quiz was created.
-   console.log(`Quiz "${quizName}" is created.`);
+  console.log(`Quiz "${quizName}" is created.`);
   // Opens the question editor for the newly created quiz.
-       editQuestions();
+  editQuestions();
 }
+
+
 
 // Edits an existing quiz with the given name.
 function editQuiz() {
@@ -203,5 +206,5 @@ function editQuestion() {
       return;
     }
   
-    // Get the question object at the specified index
+    // Get the question at the specified index
     const question = currentQuiz.questions[questionIndex];
