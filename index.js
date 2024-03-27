@@ -181,6 +181,11 @@ correctAnswer,
 point, 
 };
 
+// Find the index of the current quiz in the quizList.It is to find the current quiz index
+    const currentQuizIndex = findQuizIndex(currentQuiz.name);
+
+// Add the new question to the questions array of the current quiz in quizList (explains that the code to add the question to the quiz list)
+        quizList[currentQuizIndex].questions.push(question);
 
 
 // Display a message indicating that the question was added
