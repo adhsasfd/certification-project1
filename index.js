@@ -208,3 +208,24 @@ function editQuestion() {
   
     // Get the question at the specified index
     const question = currentQuiz.questions[questionIndex];
+
+    // Prompts the user to edit the question text and updates the object property.
+       question.text = prompt("Edit the question text: ", question.text);
+
+  // Loop through each answer option and prompt the user to edit it
+    for (let i = 0; i < question.answerOptions.length; i++) {
+      question.answerOptions[i] = prompt(`Edit answer number ${i + 1}: `, question.answerOptions[i]);
+    }
+    
+    // Prompt the user to edit the number of the correct answer (index starts from 0). Prompts the user to edit the number of the correct answer and updates the object property after adjusting for the 0-based index.
+       question.correctAnswer = parseInt(prompt("Edit the number of the correct answer: ", question.correctAnswer)) - 1;
+  
+// Find the index of the current quiz in the quizList
+    const currentQuizIndex = findQuizIndex(currentQuiz.name);
+
+// Update the question object in the questions array of the current quiz in quizList
+    quizList[currentQuizIndex].questions[questionIndex] = question;
+
+// Display a message indicating that the question was edited
+     console.log("Question edited successfully!"); 
+        }
