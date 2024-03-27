@@ -81,3 +81,28 @@ function createQuiz() {
        editQuestions();
 }
 
+// Edits an existing quiz with the given name.
+function editQuiz() {
+  // Prompts the user to enter the name of the quiz they want to edit.
+      const quizName = prompt("Put the Quiz name that you want to edit: ");
+
+  // Iterates through the list of quizzes to find the quiz with the given name.
+  let foundQuiz = null;
+  for (let i = 0; i < quizList.length; i++) {
+     if (quizList[i].name === quizName) {
+      foundQuiz = quizList[i];
+        break;
+    }
+  }
+
+  // If no quiz with the given name is found, displays an error message and returns.
+    if (!foundQuiz) {
+    console.log(`Quiz "${quizName}" does not exist.`);
+       return;
+  }
+// Sets the current quiz to the found quiz.
+      currentQuiz = foundQuiz;
+  // Opens the question editor for the found quiz.
+  editQuestions();
+
+}
