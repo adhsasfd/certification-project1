@@ -320,4 +320,9 @@ function deleteQuizFromFile(quizName) {
    });
  } 
 
- 
+ function playQuiz() {
+  
+
+}
+
+
