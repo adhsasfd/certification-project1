@@ -395,6 +395,32 @@ mainMenu();
 
 }
 
+function saveQuizToFile() {
+  // **Gets the file name from the user**Prompts the user to enter the file name for saving the quiz data. The default filename is "quiz.json" if the user leaves it blank.
+  const fileName = prompt("Write the file name (example: myQuiz.json): ") || "quiz.json";
+
+  // **Converts the quiz list to a JSON string**Uses the JSON.stringify function to convert the quizList object (containing all quizzes) into a JSON string. The null parameter indicates that no replacer function is used, and the 2 parameter specifies 2 spaces for indentation to improve readability of the generated JSON.
+  const jsonData = JSON.stringify(quizList, null, 2);  // jsonData holds the string representation of the quiz list converted to JSON format.
+
+  // **Writes the JSON string to a file**Uses the fs.writeFile function to write the generated JSON string to a file with the specified name (fileName).
+
+  fs.writeFile(fileName, jsonData, (err) => {
+    if (err) { //Checks for any errors during the file writing process. If an error occurs, an error message is displayed to the console.
+
+
+      console.error("Saving is not successful:", err.message);
+      return;
+    }
+
+    console.log(`The quiz is successfully saved in file "${fileName}".`);//Success message: If the file is saved successfully, a message is displayed to the console indicating the file name and location.
+    mainMenu();// Calls the mainMenu function to return to the main menu of the application.
+  });
+}
+
+
+
+
+
 
 
 start();//The start(); function plays a crucial role in establishing a clear entry point for your program, thereby enhancing its organization and execution flow. Here's how it contributes:
