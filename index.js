@@ -171,7 +171,7 @@ function addQuestion() {
      answerOptions.push(prompt(`Write the answer number ${i + 1}: `));
        }
 // Prompts the user for the number of the correct answer and stores it in the correctAnswer variable after adjusting for the 0-based index.In JavaScript, arrays are indexed from 0.This means the first element is at index 0, the second at index 1, and so on.
-   const correctAnswer = parseInt(prompt("Put the number of correct answer: ")) - 1;
+const correctAnswer = parseInt(prompt("Put the number of correct answer: ")) - 1;
 
 //Prompts the user for the point value of the question and stores it in the point variable
    const point = parseInt(prompt("Put the point of this question: "));
@@ -195,6 +195,10 @@ point,
     console.log("Question added successfully."); 
 }
 
+
+
+
+
 // This function edits an existing question in the quiz
 function editQuestion() {
   // Prompt the user to enter the index of the question they want to edit (starting from 1). Prompts the user for the index of the question to edit and stores it in the questionIndex variable after adjusting for the 0-based index.
@@ -216,9 +220,11 @@ function editQuestion() {
     for (let i = 0; i < question.answerOptions.length; i++) {
       question.answerOptions[i] = prompt(`Edit answer number ${i + 1}: `, question.answerOptions[i]);
     }
-    
-    // Prompt the user to edit the number of the correct answer (index starts from 0). Prompts the user to edit the number of the correct answer and updates the object property after adjusting for the 0-based index.
-       question.correctAnswer = parseInt(prompt("Edit the number of the correct answer: ", question.correctAnswer)) - 1;
+  
+
+       // Prompt the user to edit the number of the correct answer (index starts from 0). Prompts the user to edit the number of the correct answer and updates the object property after adjusting for the 0-based index.
+    question.correctAnswer = parseInt(prompt("Edit the number of the correct answer: ", question.correctAnswer)) - 1;
+  
   
 // Find the index of the current quiz in the quizList
     const currentQuizIndex = findQuizIndex(currentQuiz.name);
