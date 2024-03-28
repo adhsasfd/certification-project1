@@ -417,10 +417,12 @@ function saveQuizToFile() {
   });
 }
 
+function loadQuizFromFile() {
+  //**Gets the file name from the user** Prompts the user to enter the file name from which the quiz data should be loaded. The default filename is "quiz.json" if the user leaves it blank.
+  const fileName = prompt("Write the file name you want to read from (example: myQuiz.json): ") || "quiz.json";
 
 
-
-
+}
 
 
 start();//The start(); function plays a crucial role in establishing a clear entry point for your program, thereby enhancing its organization and execution flow. Here's how it contributes:
