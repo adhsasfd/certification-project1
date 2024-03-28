@@ -320,18 +320,29 @@ function deleteQuizFromFile(quizName) {
    });
  } 
 
+
+
+
  function playQuiz() {
-  
+  // **Gets the quiz name from the user**Prompts the user to enter the name of the quiz they want to play.
+  const quizName = prompt("Write the quiz name you want to play: ");
 
+  // **Finds the quiz with the matching name**Finds the quiz with the matching name in the quizList array.
+const selectedQuiz = quizList.find((quiz) => quiz.name === quizName);
+
+  // **Displays an error message if the quiz was not found**Displays an error message if the quiz was not found.
+  if (!selectedQuiz) {
+    console.log(`Quiz "${quizName}"does not exist.`);
+    return;
+  }
+
+ 
 }
 
-function saveQuizToFile() {
-  
-}
 
 
-function loadQuizFromFile() {
-}
+
+
 
 
 start();//The start(); function plays a crucial role in establishing a clear entry point for your program, thereby enhancing its organization and execution flow. Here's how it contributes:
