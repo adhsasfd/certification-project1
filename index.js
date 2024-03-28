@@ -343,7 +343,7 @@ for (const question of selectedQuiz.questions) {
 
  // **Initializes the answer**Initializes the answer variable to an empty string.
  let answer = "";
-}
+
 
 // **Loops until the user enters a valid answer**Loops until the user enters a valid answer number (1-4).
 while (!answer) {
@@ -384,6 +384,15 @@ selectedQuiz.score = score;
 // **Updates the highest score**Updates the highestScore property of the selected quiz object.
 if (!selectedQuiz.highestScore || score > selectedQuiz.highestScore) {
 selectedQuiz.highestScore = score;
+}
+// **Displays the quiz result and highest score**Displays the quiz result and highest score to the console.
+console.log(`Quiz "${quizName}" Result: ${score} / ${selectedQuiz.questions.length}`);
+console.log(`Highest score: ${selectedQuiz.highestScore}`);
+
+// **Returns to the main menu** Calls the mainMenu function
+mainMenu();
+
+
 }
 
 
