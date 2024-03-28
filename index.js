@@ -366,7 +366,25 @@ while (!answer) {
 }////****This code snippet ensures the user enters a valid answer number (1-4) for the current question. It displays the question and answer options, prompts for user input, validates the input, and stores the chosen answer if valid. If the input is invalid, it displays an error message and repeats the loop until a valid answer is provided
 
 
+// **Displays the user's answer**Displays the user's answer to the console.
+console.log(`\n**User's answer:** ${answer}`); 
 
+// **Checks if the answer is correct**Checks if the user's answer is correct and updates the score accordingly.
+if (answer === question.answerOptions[question.correctAnswer]) {
+  score += question.point; 
+  console.log(`**Correct answer! (Earned points: ${question.point})**`);
+} else {
+  console.log("**It's wrong answer.**");
+}
+}
+
+// **Updates the quiz score**Updates the score property of the selected quiz object.
+selectedQuiz.score = score;
+
+// **Updates the highest score**Updates the highestScore property of the selected quiz object.
+if (!selectedQuiz.highestScore || score > selectedQuiz.highestScore) {
+selectedQuiz.highestScore = score;
+}
 
 
 
