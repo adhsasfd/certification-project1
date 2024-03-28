@@ -336,7 +336,13 @@ const selectedQuiz = quizList.find((quiz) => quiz.name === quizName);
     return;
   }
 
- 
+ // **Initializes the score** Initializes the score variable to 0.
+ let score = 0;
+ // **Iterates through each question in the selected quiz**Iterates through each question in the selected quiz.
+for (const question of selectedQuiz.questions) {
+
+ // **Initializes the answer**Initializes the answer variable to an empty string.
+ let answer = "";
 }
 
 
