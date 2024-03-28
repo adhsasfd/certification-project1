@@ -345,6 +345,25 @@ for (const question of selectedQuiz.questions) {
  let answer = "";
 }
 
+// **Loops until the user enters a valid answer**Loops until the user enters a valid answer number (1-4).
+while (!answer) {
+  //**Displays the question and answer options**Displays the question text and answer options for the current question.
+  console.log(question.text);
+
+  for (let i = 0; i < question.answerOptions.length; i++) {
+    console.log(`${i + 1}. ${question.answerOptions[i]}`);
+  }
+
+// **Gets the user's answer**Prompts the user to enter the number of their answer.
+  const input = prompt("put the number of your answer: ");
+
+// **Validates the user's answer**Validates the user's answer and stores it in the answer variable.
+  if (/[1-4]/.test(input)) {
+    answer = question.answerOptions[parseInt(input) - 1];
+  } else {
+    console.log("The number does not exist. Please try agian.");
+  }
+}////****This code snippet ensures the user enters a valid answer number (1-4) for the current question. It displays the question and answer options, prompts for user input, validates the input, and stores the chosen answer if valid. If the input is invalid, it displays an error message and repeats the loop until a valid answer is provided
 
 
 
