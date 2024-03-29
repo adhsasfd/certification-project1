@@ -54,7 +54,7 @@ function mainMenu() { //Defines a function named mainMenu with no parameters. Th
       break;//Exits the current case block after executing loadQuizFromFile().
     case "q"://If the user entered "q", the game ends.
       console.log("**End Game**");//Prints "End Game" message to the console.
-      return;//Exits the mainMenu function, effectively ending the program loop.
+      return; //Exits the mainMenu function, effectively ending the program loop.
     default://If the user's input doesn't match any valid option, an error message is displayed.
       console.log("Invalid Input. Please try again.");//Prints an error message prompting the user to re-enter a valid option.
          mainMenu();//Calls the mainMenu function again to re-display the menu options. This creates a loop that continues until the user enters a valid option or "q" to quit.
