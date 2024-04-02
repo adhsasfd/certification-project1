@@ -462,8 +462,3 @@ function loadQuizFromFile() {
 
 
 start();//The start(); function plays a crucial role in establishing a clear entry point for your program, thereby enhancing its organization and execution flow. Here's how it contributes:
-
-
-
-
-
